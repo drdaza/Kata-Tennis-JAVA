@@ -38,17 +38,21 @@ public class Player {
     }
 
     public void makeService(Player opponent){
-        /* if(makePoint()) setPoint(getPoint()+1); */
+        
         if(begin){
-
             if(makePoint(opponent)) setPoint(getPoint()+1);
-            
+            if(!makePoint(opponent)) opponent.setPoint(opponent.getPoint()+1);
         }
     }
 
     public Boolean makePoint(Player opponent){
-        if(!opponent.punchBall()) return true;
-        return false;
+        if(!opponent.punchBall()){
+            return true;
+        } 
+        if(opponent.punchBall() && !punchBall()){
+            return false;
+        }
+        return makePoint(opponent);  
     }
 
     public Boolean punchBall(){
