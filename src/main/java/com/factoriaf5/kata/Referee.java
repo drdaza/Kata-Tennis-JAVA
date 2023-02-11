@@ -23,7 +23,5 @@ public class Referee {
         }
         return decidedService(players);
     }
-    public Player decidedPlayerPoint(){
-        return null;
-    }
+
 }
